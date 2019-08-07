@@ -1,0 +1,24 @@
+直接在edit configuration中添加变量，然后运行
+
+f12 console
+
+var ws = new WebSocket("ws://localhost:8080/msg");
+
+ws.onopen = function(evt) {
+	console.log("Connection open ...");
+};
+
+ws.onmessage = function(evt) {
+	console.log("Received Message: " + evt.data);
+};
+
+ws.onclose = function(evt) {
+	console.log("Connection closed.");
+};
+
+
+
+----------------
+发送消息
+ws.seng("string")
+ws.close()
