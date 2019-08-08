@@ -26,8 +26,8 @@ public class LogEventMonitor {
                 }).localAddress(inetSocketAddress);
     }
 
-    public Channel bind() {
-        return bootstrap.bind(4565).syncUninterruptibly().channel();
+    public Channel bind(int port) {
+        return bootstrap.bind(port).syncUninterruptibly().channel();
     }
 
     public void stop() {
@@ -40,7 +40,7 @@ public class LogEventMonitor {
         }
         LogEventMonitor monitor = new LogEventMonitor(new InetSocketAddress(Integer.parseInt(args[0])));
         try {
-            Channel channel = monitor.bind();
+            Channel channel = monitor.bind(Integer.parseInt(args[0]));
             System.out.println("LogEventMonitor running");
             channel.closeFuture().sync();
         } finally {

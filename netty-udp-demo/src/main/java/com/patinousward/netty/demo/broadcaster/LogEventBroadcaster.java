@@ -42,7 +42,7 @@ public class LogEventBroadcaster {
                 raf.seek(pointer);
                 String line;
                 while ((line = raf.readLine()) != null) {
-                    System.out.println(System.currentTimeMillis() + "send msg");
+                    //System.out.println(System.currentTimeMillis() + "send msg");
                     ch.writeAndFlush(new LogEvent(null, -1, file.getAbsolutePath(), line));
                 }
                 pointer = raf.getFilePointer();
