@@ -1,5 +1,6 @@
-package com.patinousward.netty.demo;
+package com.patinousward.netty.demo.broadcaster;
 
+import com.patinousward.netty.demo.LogEvent;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.socket.DatagramPacket;
@@ -16,8 +17,8 @@ public class LogEventEncoder extends MessageToMessageEncoder<LogEvent> {
 
     private final InetSocketAddress remodeAddress;
 
-    public LogEventEncoder(InetSocketAddress remodeAddress){
-        this.remodeAddress  = remodeAddress;
+    public LogEventEncoder(InetSocketAddress remodeAddress) {
+        this.remodeAddress = remodeAddress;
     }
 
     @Override
@@ -28,6 +29,6 @@ public class LogEventEncoder extends MessageToMessageEncoder<LogEvent> {
         buffer.writeBytes(file);
         buffer.writeByte(LogEvent.SEPARATOR);
         buffer.writeBytes(msg);
-        out.add(new DatagramPacket(buffer,remodeAddress));
+        out.add(new DatagramPacket(buffer, remodeAddress));
     }
 }

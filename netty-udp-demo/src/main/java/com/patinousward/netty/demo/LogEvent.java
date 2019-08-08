@@ -15,6 +15,7 @@ public class LogEvent {
     public LogEvent(String logfile, String msg) {
         this(null, -1, logfile, msg);
     }
+
     public LogEvent(InetSocketAddress source, long received,
                     String logfile, String msg) {
         this.source = source;
@@ -22,15 +23,19 @@ public class LogEvent {
         this.msg = msg;
         this.received = received;
     }
+
     public InetSocketAddress getSource() {
         return source;
     }
+
     public String getLogfile() {
         return logfile;
     }
+
     public String getMsg() {
         return msg;
     }
+
     public long getReceivedTimestamp() {
         return received;
     }
