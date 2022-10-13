@@ -41,7 +41,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        com.patinousward.AgentProxyServer
+                                        com.patinousward.netty.tcp.transponder.AgentProxyServer
                                     </mainClass>
                                 </manifest>
                             </archive>
